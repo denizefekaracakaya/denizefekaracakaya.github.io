@@ -100,6 +100,38 @@ npm run build      # writes ./out
 npx serve out
 ```
 
+## Custom domain (not active)
+
+The site currently answers only at `denizefekaracakaya.github.io`.
+`denizefekaracakaya.dev` is **not registered** — it resolves NXDOMAIN and has no
+RDAP record — so nothing is wired up for it yet. Do not set a custom domain in
+Pages before the domain actually resolves: GitHub would start redirecting
+`denizefekaracakaya.github.io` to a dead name and take the live site down.
+
+Once the domain is registered, at the DNS provider:
+
+| Type  | Name  | Value                                                                       |
+|-------|-------|-----------------------------------------------------------------------------|
+| A     | `@`   | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`   |
+| AAAA  | `@`   | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
+| CNAME | `www` | `denizefekaracakaya.github.io.`                                              |
+
+Then, on the repo side:
+
+1. Add `public/CNAME` containing the bare domain, so it lands in `out/`.
+   Because this repo deploys from a GitHub Actions workflow rather than a
+   branch, GitHub does *not* create that file for you.
+2. Register the domain with Pages:
+   `gh api -X PUT repos/denizefekaracakaya/denizefekaracakaya.github.io/pages -f cname=denizefekaracakaya.dev`
+3. Point `siteUrl` in `lib/site.ts` at the new origin and redeploy, so
+   `metadataBase`, the canonical link, Open Graph URLs, `sitemap.xml`, and
+   `robots.txt` all follow.
+4. Wait for the certificate, then enable **Enforce HTTPS** in Settings → Pages.
+
+`.dev` is on the HSTS preload list, so browsers refuse plain HTTP for it
+outright — the site will look broken until GitHub finishes issuing the
+certificate (up to 24h). That is expected, not a misconfiguration.
+
 ## Performance & accessibility notes
 
 - Fonts are loaded via `next/font` (self-hosted, no layout shift).
