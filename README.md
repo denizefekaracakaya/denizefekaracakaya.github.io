@@ -11,7 +11,7 @@ A premium personal portfolio built with Next.js 15 (App Router), React 19, TypeS
 - Accessible: visible focus rings, semantic HTML, `prefers-reduced-motion` respected
 - SEO: Metadata API, Open Graph, Twitter Cards, dynamic `sitemap.xml` and `robots.txt`
 - Custom 404 and loading states
-- Vercel Analytics + Speed Insights wired in
+- Static export (`output: "export"`) deployed to GitHub Pages
 
 ## Not included yet (intentionally scoped out)
 
@@ -74,19 +74,31 @@ Add your resume PDF at `public/DenizEfeKaracakaya_Resume.pdf` so the
 
 ## Wiring the contact form
 
-The form in `components/contact.tsx` currently simulates a submission.
-Connect it to a real backend by replacing the `setTimeout` in `handleSubmit`
-with a call to an API route (e.g. `app/api/contact/route.ts`) that sends an
-email via Resend, SendGrid, or similar.
+The form in `components/contact.tsx` sends through EmailJS directly from the
+browser, which is what keeps the site serverless. Copy `.env.example` to
+`.env.local` for local development, and mirror the same three keys as GitHub
+Actions secrets so the deployed build embeds them.
 
-## Deployment (Vercel)
+## Deployment (GitHub Pages)
 
-1. Push this repository to GitHub.
-2. Import it at https://vercel.com/new.
-3. Framework preset: Next.js (auto-detected). No environment variables are
-   required for the base site.
-4. Deploy. Update `metadataBase` in `app/layout.tsx` and the URLs in
-   `app/sitemap.ts` / `app/robots.ts` to your production domain.
+The site is a fully static export hosted on GitHub Pages at
+https://denizefekaracakaya.github.io.
+
+- `next.config.js` sets `output: "export"`, `trailingSlash: true`, and
+  `images.unoptimized` — there is no Node server in production.
+- `.github/workflows/deploy.yml` builds on every push to `main`, adds
+  `out/.nojekyll`, and publishes `out/` via `actions/deploy-pages`.
+- Enable it once under **Settings → Pages → Source: GitHub Actions**.
+- The contact form reads `NEXT_PUBLIC_EMAILJS_*` at build time, so those three
+  values must exist as repository secrets for the form to work in production.
+- The production URL lives in one place: `lib/site.ts`.
+
+Local check of the exact artifact that gets deployed:
+
+```bash
+npm run build      # writes ./out
+npx serve out
+```
 
 ## Performance & accessibility notes
 
