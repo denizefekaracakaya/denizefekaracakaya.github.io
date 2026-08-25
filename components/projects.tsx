@@ -28,9 +28,9 @@ export function Projects() {
         {projects.map((project, i) => (
           <motion.a
             key={project.slug}
-            href={project.github ?? "#"}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={project.github}
+            target={project.github ? "_blank" : undefined}
+            rel={project.github ? "noopener noreferrer" : undefined}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -43,7 +43,9 @@ export function Projects() {
                 <h3 className="font-display text-lg font-medium text-ink">
                   {project.name}
                 </h3>
-                <ArrowUpRight className="h-4 w-4 shrink-0 text-muted transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                {project.github && (
+                  <ArrowUpRight className="h-4 w-4 shrink-0 text-muted transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                )}
               </div>
               <p className="mt-3 text-sm leading-relaxed text-muted">
                 {project.summary}

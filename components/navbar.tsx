@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { nav } from "@/lib/data";
+import { nav, profile } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -70,7 +70,7 @@ export function Navbar() {
             </button>
           )}
           <a
-            href="/DenizEfeKaracakaya_Resume.pdf"
+            href={profile.cv}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden rounded-full border border-ink/10 px-4 py-1.5 text-sm text-ink transition-colors hover:border-primary/50 hover:text-primary sm:block"

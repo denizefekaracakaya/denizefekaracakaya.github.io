@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { currentFocus } from "@/lib/data";
 
 const lines = [
-  { prompt: "denizefe@portfolio", cmd: "whoami" },
-  { output: "AI & Data Engineering student · Antalya, TR" },
-  { prompt: "denizefe@portfolio", cmd: "cat focus.txt" },
+  { prompt: "deniz@portfolio", cmd: "whoami" },
+  { output: "AI & Data Engineering student · AI Engineering Intern @ ASEE · Antalya, TR" },
+  { prompt: "deniz@portfolio", cmd: "cat focus.txt" },
   { output: currentFocus.map((f) => `  - ${f}`).join("\n") },
-  { prompt: "denizefe@portfolio", cmd: "status" },
+  { prompt: "deniz@portfolio", cmd: "status" },
   { output: "● available for internships & collaborations" },
 ];
 

@@ -76,7 +76,7 @@ export function Hero() {
               <ArrowDown className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5" />
             </a>
             <a
-              href="/DenizEfeKaracakaya_Resume.pdf"
+              href={profile.cv}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-primary/50 hover:text-primary"

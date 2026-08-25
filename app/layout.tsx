@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s — Deniz Efe Karacakaya",
   },
   description:
-    "Portfolio of Deniz Efe Karacakaya, an AI & Data Engineering student building AI-powered applications, cloud-native systems, and intelligent software.",
+    "Portfolio of Deniz Efe Karacakaya — AI Engineering Intern working on federated learning for fraud detection and the self-hosted Kubernetes MLOps platform beneath it.",
   keywords: [
     "Deniz Efe Karacakaya",
     "AI Engineer",
@@ -35,8 +35,11 @@ export const metadata: Metadata = {
     "Data Engineering",
     "MLOps",
     "Portfolio",
-    "Java",
-    "LangChain",
+    "Federated Learning",
+    "Explainable AI",
+    "SHAP",
+    "XGBoost",
+    "MLflow",
     "GitOps",
     "Kubernetes"
   ],
@@ -44,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Deniz Efe Karacakaya — AI & Data Engineering",
     description:
-      "Building AI-powered applications, cloud-native systems, and intelligent software for real-world impact.",
+      "Federated learning, explainable fraud models, and the self-hosted Kubernetes MLOps platform underneath them.",
     url: siteUrl,
     siteName: "Deniz Efe Karacakaya",
     locale: "en_US",
@@ -54,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Deniz Efe Karacakaya — AI & Data Engineering",
     description:
-      "Building AI-powered applications, cloud-native systems, and intelligent software for real-world impact.",
+      "Federated learning, explainable fraud models, and the self-hosted Kubernetes MLOps platform underneath them.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: siteUrl },

@@ -6,19 +6,19 @@ import { profile } from "@/lib/data";
 const points = [
   {
     title: "Who I am",
-    body: "An AI & Data Engineering student from Antalya, Türkiye, focused on turning research-grade ML into software that ships.",
+    body: "An AI & Data Engineering student at Akdeniz University, currently an AI Engineering Intern at ASEE working on the Banking R&D fraud detection program.",
   },
   {
     title: "What I build",
-    body: "Forecasting tools, computer-vision apps, and self-hosted MLOps infrastructure — end to end, from model to deployment.",
+    body: "Federated learning pipelines, explainable fraud models, and the self-hosted Kubernetes MLOps platform underneath them — from dataset versioning to drift-triggered retraining.",
   },
   {
-    title: "Goals",
-    body: "To work at the intersection of applied machine learning and cloud-native systems, on products used by real people.",
+    title: "How I work",
+    body: "Privacy constraints first: I design for environments where the data cannot leave the institution that holds it, and I report the negative results alongside the wins.",
   },
   {
     title: "Interests",
-    body: "Federated learning, financial markets, Kubernetes internals, and anything that makes infrastructure simpler.",
+    body: "Federated learning, explainable AI, Kubernetes internals, GitOps, and anything that makes infrastructure reproducible.",
   },
 ];
 
@@ -41,7 +41,8 @@ export function About() {
           </h2>
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">
             {profile.education}. {profile.location}. I like building things
-            that close the gap between a trained model and a working product.
+            that close the gap between a trained model and a system that keeps
+            running in production.
           </p>
         </motion.div>
 

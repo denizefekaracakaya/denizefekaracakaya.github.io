@@ -2,13 +2,14 @@ export const profile = {
   name: "Deniz Efe Karacakaya",
   role: "Artificial Intelligence & Data Engineering Student",
   location: "Antalya, Türkiye",
-  education: "Akdeniz University — Artificial Intelligence & Data Engineering",
+  education: "Akdeniz University — B.S. in Artificial Intelligence & Data Engineering",
   headline:
-    "Building AI-powered applications, cloud-native systems, and intelligent software for real-world impact.",
+    "AI engineering intern building federated learning systems and the self-hosted MLOps platform they run on — for environments where the data cannot leave the building.",
   email: "denizefekaracakaya14@gmail.com",
-  github: "https://github.com/Denizfe",
-  linkedin: "https://linkedin.com/in/denizefekaracakaya",
+  github: "https://github.com/denizefekaracakaya",
+  linkedin: "https://linkedin.com/in/deniz-efe-karacakaya",
   kaggle: "https://kaggle.com/denizefekaracakaya",
+  cv: "/Deniz_Efe_Karacakaya_CV.pdf",
 };
 
 export const nav = [
@@ -22,48 +23,86 @@ export const nav = [
 
 export const skillGroups = [
   {
-    category: "Languages",
-    items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "Bash"],
-  },
-  {
-    category: "Machine Learning & AI",
+    category: "AI & Machine Learning",
     items: [
-      "LangChain",
       "PyTorch",
-      "TensorFlow",
-      "Scikit-Learn",
-      "MLflow",
+      "scikit-learn",
+      "XGBoost",
+      "LightGBM",
+      "CatBoost",
+      "SHAP",
+      "Optuna",
+      "Federated Learning (Flower)",
       "Pandas",
       "NumPy",
-      "OpenCV",
-      "Leafmap",
-      "GeoPandas",
     ],
   },
   {
-    category: "Cloud & Infra",
+    category: "ML Engineering & MLOps",
     items: [
-      "Docker",
-      "Kubernetes",
-      "GitHub Actions",
-      "AWS",
-      "Google Cloud",
-      "Argo CD",
-      "Helm",
-      "MinIO",
+      "MLflow",
+      "DVC",
+      "Great Expectations",
+      "Evidently",
+      "KServe",
+      "Model serving",
+      "Automated retraining",
     ],
   },
   {
-    category: "Frontend",
-    items: ["React", "Next.js", "Tailwind CSS", "Angular"],
+    category: "Languages",
+    items: ["Python", "Java", "TypeScript", "JavaScript", "SQL"],
   },
   {
-    category: "Backend",
-    items: ["Spring Boot", "Node.js", "Express", "FastAPI"],
+    category: "Frameworks & APIs",
+    items: [
+      "FastAPI",
+      "Spring Boot",
+      "Flask",
+      "Node.js",
+      "Express",
+      "React",
+      "Next.js",
+      "Angular",
+      "Tailwind CSS",
+      "Hibernate/JPA",
+      "REST",
+      "gRPC",
+      "JWT",
+    ],
   },
   {
-    category: "Database",
-    items: ["PostgreSQL", "MongoDB", "Supabase", "Firebase"],
+    category: "Cloud, Infrastructure & DevOps",
+    items: [
+      "Kubernetes",
+      "Docker",
+      "Docker Compose",
+      "Helm",
+      "Kustomize",
+      "Argo CD",
+      "GitHub Actions",
+      "Actions Runner Controller",
+      "GHCR",
+      "Traefik",
+      "Google Cloud",
+      "Git",
+      "Linux",
+    ],
+  },
+  {
+    category: "Databases & Storage",
+    items: ["PostgreSQL", "MinIO", "MongoDB", "Supabase", "Firebase"],
+  },
+  {
+    category: "Observability & Security",
+    items: [
+      "Prometheus",
+      "Grafana",
+      "Alertmanager",
+      "Sealed Secrets",
+      "Trivy",
+      "Secret scanning in CI",
+    ],
   },
 ];
 
@@ -79,57 +118,72 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "lionel",
-    name: "L.I.O.N.E.L",
+    slug: "local-flow-mlops",
+    name: "local-flow-mlops — Self-Hosted MLOps Platform",
     summary:
-      "A local-first, voice-driven autonomous agent. Bilingual (English/Turkish), MCP-native, and designed to work with the network unplugged — ADR-driven architecture with policy-gated CI.",
+      "An end-to-end machine learning platform on single-node Kubernetes, built for environments where data cannot leave the organisation — no managed cloud service anywhere in the workflow. The whole stack is defined in Git and reconciled by Argo CD (app-of-apps, 24 Applications, sync waves, prune and self-heal), with MLflow on PostgreSQL for tracking, MinIO for artifacts, DVC dataset versioning, alias-based champion/challenger promotion, KServe and FastAPI serving paths, and an Evidently drift job whose verdict triggers a retraining Job.",
+    stack: [
+      "Kubernetes",
+      "Argo CD",
+      "MLflow",
+      "DVC",
+      "MinIO",
+      "KServe",
+      "Evidently",
+      "GitHub Actions",
+    ],
+    github: "https://github.com/denizefekaracakaya/local-flow-mlops",
+    featured: true,
+  },
+  {
+    slug: "lionel",
+    name: "L.I.O.N.E.L — Local-First Voice Agent",
+    summary:
+      "A bilingual (English/Turkish), MCP-native voice agent designed to run with the network unplugged: four degradation tiers from fully offline to cloud-assisted, split across a low-latency host runtime and a relocatable cluster runtime, with MCP carrying control signals, gRPC the media streams, and OpenTelemetry tracing. Contracts came before code — 28 architecture decision records, 16 policy gates and 88 validation rules enforced in CI ahead of implementation.",
     stack: ["Python", "MCP", "gRPC", "OpenTelemetry", "GitHub Actions"],
-    github: "https://github.com/Denizfe/L.I.O.N.E.L.git",
+    github: "https://github.com/denizefekaracakaya/L.I.O.N.E.L",
+    featured: true,
+  },
+  {
+    slug: "chronos",
+    name: "Chronos — Luxury Watch E-Commerce Platform",
+    summary:
+      "A role-based e-commerce platform on Google Cloud — Angular front end, Spring Boot API, JWT authentication, Stripe payments, and a Flask service exposing a Gemini chatbot hardened against prompt injection — over a normalized (3NF) schema loaded by a Python ETL pipeline of 1,500+ product records.",
+    stack: [
+      "Angular",
+      "Spring Boot",
+      "Flask",
+      "PostgreSQL",
+      "Stripe",
+      "Google Cloud",
+    ],
+    featured: true,
+  },
+  {
+    slug: "gym-buddy-ai",
+    name: "Gym Buddy AI — Voice-Driven Fitness Coach",
+    summary:
+      "An AI fitness and nutrition assistant delivering real-time voice guidance during workouts, on a React/TypeScript front end over a Supabase backend.",
+    stack: ["React", "TypeScript", "Supabase", "Google Gemini"],
+    github: "https://github.com/denizefekaracakaya/gym-buddy-v2",
+    featured: true,
+  },
+  {
+    slug: "artifee-ai-photo-editor",
+    name: "Artifee — Generative AI Photo Editor",
+    summary:
+      "A generative photo-editing web application supporting object removal and image enhancement on the Gemini API — paint over objects, watermarks or text and they are removed seamlessly.",
+    stack: ["React", "TypeScript", "Google Gemini"],
+    github: "https://github.com/denizefekaracakaya/Artifee-AI-Photo-Editor",
     featured: true,
   },
   {
     slug: "forecast",
     name: "Forecast",
     summary:
-      "A forecasting platform leveraging Prophet-based time-series models and analytics for predictive stock price insights.",
+      "A forecasting platform leveraging Prophet-based time-series models and analytics for predictive stock price insights, with backtesting and interactive visualizations.",
     stack: ["Python", "Prophet", "Streamlit", "Machine Learning"],
-    github: "https://github.com/Denizfe/forecast.git",
-    featured: true,
-  },
-  {
-    slug: "gym-buddy-ai",
-    name: "Gym Buddy AI",
-    summary:
-      "An AI-powered fitness & nutrition assistant. Plan workouts, log exercises, analyze meals with Google Gemini, and track hydration — with Firebase-synced profiles.",
-    stack: ["React", "TypeScript", "Firebase", "Google Gemini"],
-    github: "https://github.com/Denizfe/gym-buddy-v2.git",
-    featured: true,
-  },
-  {
-    slug: "artifee-ai-photo-editor",
-    name: "Artifee — AI Photo Editor",
-    summary:
-      "A browser-based AI photo editor. Paint over objects, watermarks, or text and Gemini removes them seamlessly — with one-click image enhancement.",
-    stack: ["React", "TypeScript", "Google Gemini"],
-    github: "https://github.com/Denizfe/Artifee-AI-Photo-Editor.git",
-    featured: true,
-  },
-  {
-    slug: "candymatch",
-    name: "Candymatch",
-    summary:
-      "A match-3 puzzle game for Android built in Kotlin from scratch — swap candies, break ice blocks, and beat the clock across increasingly hard levels.",
-    stack: ["Kotlin", "Android", "Game Logic"],
-    github: "https://github.com/Denizfe/candymatch.git",
-    featured: true,
-  },
-  {
-    slug: "local-flow-mlops",
-    name: "Local Flow MLOps",
-    summary:
-      "End-to-end local MLOps architecture designed for hardware-constrained environments. Integrates CPU offloading for large-scale training, MinIO-backed MLflow tracking, and strict declarative GitOps automation on K8s.",
-    stack: ["Kubernetes", "K3s", "Docker", "MinIO", "Helm", "Argo CD", "MLflow"],
-    github: "https://github.com/Denizfe/local-flow-mlops",
+    github: "https://github.com/denizefekaracakaya/forecast",
     featured: true,
   },
   {
@@ -138,8 +192,8 @@ export const projects: Project[] = [
     summary:
       "An AI-powered interactive learning assistant for Data Structures & Algorithms and OOP — with Java/Python language modes, interactive quizzes, and step-by-step Mermaid visualizations.",
     stack: ["React", "TypeScript", "Google Gemini", "Mermaid"],
-    github: "https://github.com/Denizfe/DSA-OOP-Assistant",
-    featured: true,
+    github: "https://github.com/denizefekaracakaya/DSA-OOP-Assistant",
+    featured: false,
   },
   {
     slug: "langchain-multi-agent",
@@ -147,29 +201,37 @@ export const projects: Project[] = [
     summary:
       "An intelligent system built with LangChain that coordinates multiple autonomous AI agents to collaboratively solve complex reasoning tasks.",
     stack: ["Python", "LangChain", "LLMs", "Multi-Agent"],
-    github: "https://github.com/Denizfe/langchain-multiagent-project.git",
-    featured: true,
+    github: "https://github.com/denizefekaracakaya/langchain-multiagent-project",
+    featured: false,
+  },
+  {
+    slug: "candymatch",
+    name: "Candymatch",
+    summary:
+      "A match-3 puzzle game for Android built in Kotlin from scratch — swap candies, break ice blocks, and beat the clock across increasingly hard levels.",
+    stack: ["Kotlin", "Android", "Game Logic"],
+    featured: false,
   },
 ];
 
 export const experience = [
   {
     period: "June 2026 — Present",
-    title: "Software Engineering Intern",
-    org: "ASEE",
+    title: "AI Engineering Intern",
+    org: "ASEE Information Technologies",
     description:
-      "Contributed to production software systems, working across the stack on internal tooling and gaining hands-on experience with enterprise development workflows.",
+      "Delivering three consecutive proof-of-concept studies for the Banking R&D fraud detection program — feature reduction, federated learning, and the MLOps platform beneath both — all shaped by one constraint: customer transaction data cannot leave the institution that holds it. Established the reference benchmark on the IEEE-CIS dataset (~590K transactions, 391 features), used SHAP attribution to cut the schema from 391 to 20 features while retaining 98.2% of reference F1, and benchmarked 47 federated configurations across FedAvg, FedProx, FedAdam, FedYogi and SCAFFOLD — lifting the weakest participant bank by +0.175 F1 with no raw records exchanged.",
   },
   {
-    period: "2025",
-    title: "AI Workshop",
-    org: "BTK Akademi",
+    period: "2025 — 2026",
+    title: "Data Analysis School — AI & Machine Learning",
+    org: "YÖK / Marmara University, with METU, ITU & Boğaziçi University",
     description:
-      "Completed an intensive applied AI workshop covering machine learning fundamentals, model training, and deployment practices.",
+      "Selected for a national data analysis program covering applied AI and machine learning modules, taught jointly by faculty from METU, ITU and Boğaziçi University.",
   },
   {
-    period: "2022 — Present",
-    title: "AI & Data Engineering Student",
+    period: "2024 — 2028 (Expected)",
+    title: "B.S. in Artificial Intelligence & Data Engineering",
     org: "Akdeniz University",
     description:
       "Studying artificial intelligence and data engineering, with coursework spanning numerical methods, distributed systems, and applied machine learning.",
@@ -179,14 +241,21 @@ export const experience = [
     title: "Independent Builder",
     org: "Personal Projects",
     description:
-      "Designing and shipping self-directed projects across ML, cloud infrastructure, and full-stack development — from local MLOps platforms to forecasting tools.",
+      "Designing and shipping self-directed projects across ML, cloud infrastructure, and full-stack development — from local-first voice agents to self-hosted MLOps platforms.",
   },
 ];
 
 export const currentFocus = [
-  "Kubernetes & Helm charts",
-  "Federated learning systems",
-  "Time-series forecasting",
+  "Federated learning (Flower, non-IID splits)",
+  "Kubernetes-native MLOps & GitOps",
+  "Explainable AI with SHAP",
+];
+
+export const languages = [
+  { name: "Turkish", level: "Native" },
+  { name: "English", level: "Professional Working Proficiency" },
+  { name: "German", level: "Basic" },
+  { name: "Spanish", level: "Basic" },
 ];
 
 export const certificates = [

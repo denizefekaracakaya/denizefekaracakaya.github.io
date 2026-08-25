@@ -68,7 +68,7 @@ lib/
 Everything text-based — name, projects, skills, experience — lives in
 `lib/data.ts`. Update that file rather than the components.
 
-Add your resume PDF at `public/DenizEfeKaracakaya_Resume.pdf` so the
+Add your resume PDF at `public/Deniz_Efe_Karacakaya_CV.pdf` so the
 "Download CV" buttons work, and update the GitHub/LinkedIn/Kaggle URLs in
 `lib/data.ts` to your real profiles.
 
